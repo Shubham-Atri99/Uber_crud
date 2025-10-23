@@ -4,6 +4,7 @@ import cors from 'cors';
 import connectMongo from './db/connection.js';
 import userRouter from './routes/user.route.js';
 import cookieParser from 'cookie-parser';
+import captainRouter from './routes/captain.route.js';
 dotenv.config();
 
 
@@ -18,6 +19,7 @@ app.use(cors({
 
 //routers
 app.use("/api/user",userRouter)
+app.use("/api/captain",captainRouter)
 
 connectMongo('mongodb://localhost:27017/uber_crud') 
   .then(() => console.log("MongoDB connected"))
