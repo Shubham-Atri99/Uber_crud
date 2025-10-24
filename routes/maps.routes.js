@@ -12,5 +12,14 @@ mapsRouter.get('/getcoordinates',
 
     authMiddleware,getCantrolCoordinates)
 
+mapsRouter.get('/getdistance',
+    query('origin').isString().isLength({min:3}),
+    query('destination').isString().isLength({min:3}),
+    authMiddleware,getCantrolDistance);
+ 
+
+mapsRouter.get('/autocomplete',
+    query('input').isString().isLength({min:3}),
+    authMiddleware,getCantrolAutoCompletion);
 
 export default mapsRouter; 

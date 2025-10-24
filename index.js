@@ -6,6 +6,7 @@ import userRouter from './routes/user.route.js';
 import cookieParser from 'cookie-parser';
 import captainRouter from './routes/captain.route.js';
 import mapsRouter from './routes/maps.routes.js';
+import rideRouter from './routes/ride.route.js';
 dotenv.config();
 
 
@@ -22,6 +23,7 @@ app.use(cors({
 app.use("/api/user",userRouter)
 app.use("/api/captain",captainRouter)
 app.use("/api/maps",mapsRouter)
+app.use("/api/ride",rideRouter)
 
 connectMongo('mongodb://localhost:27017/uber_crud') 
   .then(() => console.log("MongoDB connected"))
