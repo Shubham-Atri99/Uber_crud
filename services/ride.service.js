@@ -16,12 +16,13 @@ export async function createRide({
     user,
     pickup,
     destination, 
+    otp:getOTP(4),
     fare:fare[vehicleType],
   })
   return ride;
 }
 
-export async function getfare(pickup, destination) {
+ async function getfare(pickup, destination) {
   if (!pickup || !destination) {
     throw new Error("Pickup and destination are required to calculate fare");
   }
@@ -44,3 +45,11 @@ export async function getfare(pickup, destination) {
 
   return fare;
 }
+function getOTP(numberOfDigits) {
+  let otp = '';
+    for (let i = 0; i < numberOfDigits; i++) {
+        otp += Math.floor(Math.random() * 10).toString();
+    }
+    return parseInt(otp);
+}
+

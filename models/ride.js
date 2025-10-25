@@ -46,6 +46,10 @@ const riderSchema=new mongoose.Schema({
     fare:{
         type:Number,
         required:true,
+    },
+    otp:{
+        type:Number,
+        select:false,
     }
     
 
